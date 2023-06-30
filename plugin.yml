@@ -1,0 +1,10 @@
+---
+name: WorldsLoader
+version: 0.0.1
+main: NhanAZ\WorldsLoader\Main
+api: 5.0.0
+
+website: https://github.com/NhanAZ
+author: NhanAZ
+description: Auto load all worlds when plugin is loaded
+...
