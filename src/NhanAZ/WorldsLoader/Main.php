@@ -10,10 +10,12 @@ class Main extends PluginBase {
 
 	protected function onEnable(): void {
 		$worlds = array_diff(scandir($this->getServer()->getDataPath() . "worlds"), ["..", "."]);
+		$lodedWorld = [];
 		foreach ($worlds as $worldName) {
 			if ($this->getServer()->getWorldManager()->loadWorld($worldName)) {
-				$this->getLogger()->info("Successfully loaded $worldName");
+				$lodedWorld[] = $worldName;
 			}
 		}
+		$this->getLogger()->info("Worlds loaded successfully: [" . implode(", ", $lodedWorld) . "]");
 	}
 }
