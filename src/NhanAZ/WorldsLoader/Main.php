@@ -12,6 +12,7 @@ use pocketmine\world\format\io\WorldProviderManagerEntry;
 use pocketmine\world\format\io\WritableWorldProviderManagerEntry;
 
 class Main extends PluginBase {
+    
     protected function onEnable(): void {
         $worlds = array_diff(scandir($this->getServer()->getDataPath() . "worlds") , ["..", "."]);
         $lodedWorld = [];
