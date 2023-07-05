@@ -29,10 +29,10 @@ class Main extends PluginBase {
                 $toFormat = $this->getServer()->getConfigGroup()->getProperty("level-settings.default-format", "leveldb");
                 $oldProviderClasses = $providerManager->getMatchingProviders($worldPath);
                 if (count($oldProviderClasses) === 0) {
-                    $this->getLogger()->warning("{$worldName} world format unknown!");
+                    $this->getLogger()->warning("Unknown {$worldName} format!");
                 }
                 if (count($oldProviderClasses) > 1) {
-                    $this->getLogger()->warning("Ambiguous world format: matched " . count($oldProviderClasses) . " (" . implode(array_keys($oldProviderClasses)) . ")");
+                    $this->getLogger()->warning("Ambiguous {$worldName} format: matched " . count($oldProviderClasses) . " (" . implode(array_keys($oldProviderClasses)) . ")");
                 }
                 $oldProviderClass = array_shift($oldProviderClasses);
                 $oldProvider = $oldProviderClass->fromPath($worldPath, new \PrefixedLogger(\GlobalLogger::get() , "Old World Provider"));
