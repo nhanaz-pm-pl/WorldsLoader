@@ -30,9 +30,11 @@ class Main extends PluginBase {
                 $oldProviderClasses = $providerManager->getMatchingProviders($worldPath);
                 if (count($oldProviderClasses) === 0) {
                     $this->getLogger()->warning("Unknown {$worldName} format!");
+                    return;
                 }
                 if (count($oldProviderClasses) > 1) {
                     $this->getLogger()->warning("Ambiguous {$worldName} format: matched " . count($oldProviderClasses) . " (" . implode(array_keys($oldProviderClasses)) . ")");
+                    return;
                 }
                 $oldProviderClass = array_shift($oldProviderClasses);
                 $oldProvider = $oldProviderClass->fromPath($worldPath, new \PrefixedLogger(\GlobalLogger::get() , "Old World Provider"));
